@@ -52,6 +52,10 @@ loginhtml = """\
 
 """
 
+class Usuario(db.Model):
+  email = db.StringProperty(required=True)
+  password = db.StringProperty(required=True)
+
 
 class Main(webapp2.RequestHandler):
     def get(self):
@@ -79,8 +83,11 @@ class LoginForm(webapp2.RequestHandler):
 
 class Login(webapp2.RequestHandler):
     def get(self):
-        email = self.request.get("email")
+        email= self.request.get("email")
         passw = self.request.get("password")
+
+        user = users.User(email)
+        usuario = Usuario(email,passw)
 
         if email=="text.example@gmail.com":
             self.redirect('/app')
