@@ -58,6 +58,7 @@ class App(webapp2.RequestHandler):
 class Logout(webapp2.RequestHandler):
     def get(self):
         users.create_logout_url('/')
+        self.redirect('/')
 
 app = webapp2.WSGIApplication([
     ('/', Main), ('/app', App), ('/logout', Logout)
