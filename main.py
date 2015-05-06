@@ -79,8 +79,13 @@ class LoginForm(webapp2.RequestHandler):
 
 class Login(webapp2.RequestHandler):
     def get(self):
+        email = self.request.get("email")
+        passw = self.request.get("password")
 
-        self.redirect('/app')
+        if email=="text.example@gmail.com":
+            self.redirect('/app')
+        else:
+            self.response.write("Wrong password. Try again: <a href=\"/loginform\">logout</a> " )
 
 class Logout(webapp2.RequestHandler):
     def get(self):
