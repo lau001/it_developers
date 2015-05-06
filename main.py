@@ -88,7 +88,7 @@ class Login(webapp2.RequestHandler):
 
         user = users.User(email)
         usuario = Usuario(email,passw)
-
+ 
         if email=="text.example@gmail.com":
             self.redirect('/app')
         else:
