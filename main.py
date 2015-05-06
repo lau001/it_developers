@@ -212,6 +212,25 @@ class Logout(webapp2.RequestHandler):
         users.create_logout_url('/')
         self.redirect('/')
 
+class AddUsers(webapp2.RequestHandler):
+    def get(self):
+        usuario = Usuario()
+        usuario.name="lau"
+        usuario.email="lau001@gmail.com"
+        usuario.password="lau001"
+        usuario.put()
+
+class SeeUsers(webapp2.RequestHandler):
+    def get(self):
+        usuarios = ndb.gql("SELECT * FROM Usuario")
+        self.response.out.write('<table border = 1>')
+        for usuario in usuarios:
+            self.response.out.write('<tr>')
+            self.response.out.write('<td>'+usuario.email+'</td>')
+            self.response.out.write('<td>'+usuario.name+'</td>')
+            self.response.out.write('</tr>')
+            self.response.out.write('</table>')
+
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/app', App), ('/loginform', SignupHandler), ('/login', Login), ('/logout', Logout)
+    ('/', Main), ('/app', App), ('/loginform', SignupHandler), ('/login', Login), ('/logout', Logout), ('/users',SeeUsers), ('/addusers',AddUsers)
 ], debug=True)
