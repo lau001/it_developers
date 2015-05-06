@@ -41,7 +41,7 @@ loginhtml = """\
     <html>
         <body>
 
-            <form action=\"/login2\">
+            <form action=\"/login\">
                 <div> Email: <input type=\"text\" name=\"email\"/> </div>
                 <div> Password: <input type=\"password\" name=\"password\"/> </div>
                 <div> <input type=\"submit\" value=\"Login\"</div>
@@ -62,7 +62,7 @@ class Main(webapp2.RequestHandler):
             msg = ("Welcome, %s! (<a href=\"%s\">logout</a></br><a href=\"/app\"> app </a>)"%
                    (user.nickname(), users.create_logout_url("/")))
         else:
-            msg = ("<form action=\"/login\">"
+            msg = ("<form action=\"/loginform\">"
                    "<input type=\"submit\" value=\"Login\">"
                    "</form>")
         self.response.out.write("<html><body>%s</body></html>" % msg)
@@ -73,12 +73,13 @@ class App(webapp2.RequestHandler):
     def get(self):
         self.response.write(startapp)
 
-class Login(webapp2.RequestHandler):
+class LoginForm(webapp2.RequestHandler):
     def get(self):
         self.response.write(loginhtml)
 
-class Login2(webapp2.RequestHandler):
+class Login(webapp2.RequestHandler):
     def get(self):
+
         self.redirect('/app')
 
 class Logout(webapp2.RequestHandler):
@@ -87,5 +88,5 @@ class Logout(webapp2.RequestHandler):
         self.redirect('/')
 
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/app', App), ('/login', Login), ('/login2', Login2), ('/logout', Logout)
+    ('/', Main), ('/app', App), ('/loginform', LoginForm), ('/login', Login), ('/logout', Logout)
 ], debug=True)
