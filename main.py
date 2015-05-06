@@ -56,7 +56,6 @@ class Usuario(db.Model):
   email = db.StringProperty(required=True)
   password = db.StringProperty(required=True)
 
-
 class Main(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
