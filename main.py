@@ -56,19 +56,18 @@ loginhtml = """\
 """
 
 signup_form='''<html> <head> <link type="text/css" rel="stylesheet"href="/stylesheets/main.css" />
-<title>Introduzca sus datos:</title>
  <style type="text/css">
   .label {text-align: right}
   .error {color: red}
   </style>
 </head>
-<body> <h1>DSSW-Tarea 2</h1> <h2>Rellene los campos por favor:</h2>
+<body> <h1>Mc Ilcapo</h1> <h2>Sign up:</h2>
 <form method="post">
  <table>
      <tr>
-        <td class="label">Nombre de usuario </td>
+        <td class="label">Username </td>
         <td>
-         <input type="text" name="username" value="%(username)s" placeholder="Tu nombre..."></td>
+         <input type="text" name="username" value="%(username)s"></td>
         <td class="error"> %(username_error)s</td>
     </tr>
  <tr>
@@ -78,9 +77,9 @@ signup_form='''<html> <head> <link type="text/css" rel="stylesheet"href="/styles
  </td>
 </tr>
  <tr>
- <td class="label">  Repetir Password  </td>
+ <td class="label">  Repeat Password  </td>
 <td>
- <input type="password" name="verify" value="%(verify)s" placeholder="El mismo de antes">
+ <input type="password" name="verify" value="%(verify)s">
  </td>
  <td class="error">
 %(verify_error)s
@@ -100,7 +99,7 @@ value="%(email)s">
  </tr>
  </table>
  <input
-type="submit"> </form> </body> </html>'''
+type="submit" value="Register"> </form> </body> </html>'''
 
 
 class Usuario(ndb.Model):
@@ -147,22 +146,22 @@ class SignupHandler(webapp2.RequestHandler):
         email_error = ""
         error = False
         if not self.valid_username(user_username):
-            username_error = "Wrong name."
+            username_error = "Invalid username."
             error = True
         if not self.valid_password(user_password):
-            password_error = "Wrong password. "
+            password_error = "Invalid password. "
             error = True
         if not user_verify or user_password == user_verify:
             verify_error = "Passwords do not match"
             error = True
         if not self.valid_email(user_email):
-            email_error = "Wrong email"
+            email_error = "Invalid email"
             error = True
 
         if error:
             self.write_form(sani_username,sani_password,sani_verify,sani_email,username_error,password_error,verify_error,email_error)
         else:
-            user = Usuario.query(Usuario.name==user_username,Usuario.email==user_email).count()
+            user = ndb.gql("SELECT * FROM Usuario u WHERE u.name=%s" % self.user_name)
             if user==0:
                 u=Usuario()
                 u.name=user_username
@@ -183,7 +182,6 @@ class SignupHandler(webapp2.RequestHandler):
 
     def escape_html(self,val):
         return cgi.escape(val, quote=True)
-
 
 
 class App(webapp2.RequestHandler):
