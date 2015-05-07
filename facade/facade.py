@@ -119,5 +119,5 @@ class SeeUsers(webapp2.RequestHandler):
             self.response.out.write('</tr>')
         self.response.out.write('</table>')
 
-class AddUsers():
-    dataAccess.AddUsers
+def AddUsers():
+    return dataAccess.AddUsers

@@ -1,12 +1,7 @@
-signup_form='''<html> <head> <link type="text/css" rel="stylesheet"href="/stylesheets/main.css" />
-<title>Introduzca sus datos:</title>
- <style type="text/css">
-  .label {text-align: right}
-  .error {color: red}
-  </style>
-</head>
-<body> <h1>DSSW-Tarea 2</h1> <h2>Rellene los campos por favor:</h2>
+import config
+signup_form=config.htmlFirst() + '''<h1>Sing Up</h1>
 <form method="post">
+</hr>
  <table>
      <tr>
         <td class="label">Nombre de usuario </td>
@@ -43,4 +38,4 @@ value="%(email)s">
  </tr>
  </table>
  <input
-type="submit"> </form> </body> </html>'''
+type="submit"> </form>''' + config.htmlEnd()

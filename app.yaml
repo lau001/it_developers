@@ -12,6 +12,9 @@ handlers:
 - url: .*
   script: main.app
 
+- url: /stylesheet
+  static_dir: stylesheet
+
 - url: /app/.*
   script: app.app
   login: required

@@ -6,4 +6,3 @@ startapp = config.htmlFirst() + \
 
             </form>
         ''' + config.htmlEnd()
-
