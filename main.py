@@ -23,6 +23,7 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 
 from interface import login, signup, start
+from dataaccess.dataAccess
 
 
 class Usuario(ndb.Model):
@@ -105,8 +106,6 @@ class SignupHandler(webapp2.RequestHandler):
 
     def escape_html(self,val):
         return cgi.escape(val, quote=True)
-
-
 
 
 class App(webapp2.RequestHandler):
