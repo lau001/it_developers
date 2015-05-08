@@ -1,12 +1,17 @@
 import config
-signup_form=config.htmlFirst() + '''<h1>Sing Up</h1>
+signup_form=config.htmlFirst() + '''<html> <head>
+ <style type="text/css">
+  .label {text-align: right}
+  .error {color: red}
+  </style>
+</head>
+<body> <h1>Mc Ilcapo</h1> <h2>Sign up:</h2>
 <form method="post">
-</hr>
  <table>
      <tr>
-        <td class="label">Nombre de usuario </td>
+        <td class="label">Username </td>
         <td>
-         <input type="text" name="username" value="%(username)s" placeholder="Tu nombre..."></td>
+         <input type="text" name="username" value="%(username)s"></td>
         <td class="error"> %(username_error)s</td>
     </tr>
  <tr>
@@ -16,9 +21,9 @@ signup_form=config.htmlFirst() + '''<h1>Sing Up</h1>
  </td>
 </tr>
  <tr>
- <td class="label">  Repetir Password  </td>
+ <td class="label">  Repeat Password  </td>
 <td>
- <input type="password" name="verify" value="%(verify)s" placeholder="El mismo de antes">
+ <input type="password" name="verify" value="%(verify)s">
  </td>
  <td class="error">
 %(verify_error)s
@@ -38,4 +43,4 @@ value="%(email)s">
  </tr>
  </table>
  <input
-type="submit"> </form>''' + config.htmlEnd()
+type="submit" value="Register"> </form> </body> </html>'''+ config.htmlEnd()

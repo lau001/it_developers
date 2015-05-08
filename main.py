@@ -16,13 +16,26 @@
 #
 
 import webapp2
+from google.appengine.api import users
 
-from facade import facade
+from facade import facade,Login,Signup,App
+
 
 class Main(webapp2.RequestHandler):
-    def get(self):
-        self.response.out.write(facade.index.startapp)
+     def get(self):
+        user = users.get_current_user()
+        if user:
+            msg = ("Welcome, %s! (<a href=\"%s\">logout</a></br><a href=\"/app\"> app </a>)"%
+                   (user.nickname(), users.create_logout_url("/")))
+        else:
+            msg = ("<form action=\"/register\">"
+                   "<input type=\"submit\" value=\"Register\">"
+                   "</form>"
+                   "<form action=\"/login\">"
+                   "<input type=\"submit\" value=\"Login\">"
+                   "</form>")
+        self.response.out.write("<html><body>%s</body></html>" % msg)
 
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/app', facade.App), ('/signup', facade.SignUp), ('/login', facade.Login), ('/logout', facade.Logout), ('/users', facade.SeeUsers), ('/addusers', facade.dataAccess.AddUsers)
+    ('/', Main), ('/login',Login.Login), ('/logout',facade.Logout), ('/app',App.App), ('/register',Signup.Signup), ('/addusers',facade.AddUsers), ('/users',facade.SeeUsers)
 ], debug=True)

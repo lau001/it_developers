@@ -1,6 +1,8 @@
 import config
+
+
 loginhtml = config.htmlFirst() + '''
-            <form action=\"/login\">
+            <form method="post" action=\"/login\">
                 <h1>Sing Up</h1>
                 </hr>
                 <div> Email: <input type=\"text\" name=\"email\"/> </div>
