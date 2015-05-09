@@ -37,4 +37,4 @@ value="%(email)s">
  </tr>
  </table>
  <input
-type="submit" value="Register"> </form> </body> </html>''' + config.htmlEnd()
+type="submit" value="Register"> </form>''' + config.htmlEnd()
