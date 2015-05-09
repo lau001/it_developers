@@ -16,16 +16,13 @@
 #
 
 import webapp2
-from google.appengine.api import users
-
-from facade import facade,Login,Signup,App
-
+from facade import facade, Login, Signup, App
+from interface import index
 
 class Main(webapp2.RequestHandler):
      def get(self):
-        user = users.get_current_user()
-        self.response.out.write(facade.index.startapp)
+        self.response.out.write(index.startapp)
 
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/login',Login.Login), ('/logout',facade.Logout), ('/app',App.App), ('/register',Signup.Signup), ('/addusers',facade.AddUsers), ('/users',facade.SeeUsers)
+    ('/', Main), ('/login', Login.Login), ('/logout', facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/addusers', facade.AddUsers), ('/users', facade.SeeUsers)
 ], debug=True)
