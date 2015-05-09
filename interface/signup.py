@@ -1,11 +1,5 @@
 import config
-signup_form=config.htmlFirst() + '''<html> <head>
- <style type="text/css">
-  .label {text-align: right}
-  .error {color: red}
-  </style>
-</head>
-<body> <h1>Mc Ilcapo</h1> <h2>Sign up:</h2>
+signup_form=config.htmlFirst() + '''<h1>Sing Up</h1>
 <form method="post">
  <table>
      <tr>

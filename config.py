@@ -2,7 +2,7 @@
 
 def htmlFirst():
     return '''<html xmlns="http://www.w3.org/1999/xhtml">
-        <head> <link type="text/static" rel="static" href="/static/style.css"/>
+        <head> <link type="text/static" rel="stylesheet" href="/stylesheet/style.css"/>
         <style type="text/static">
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="static/scripts.js"></script>
@@ -13,7 +13,7 @@ def htmlFirst():
         <body class="mystyle" data-feedly-mini="yes">
             <div id="title"><h1>Mac Ilcapo</h1></div>
             <div id="logoDiv" name="logoDiv">
-		        <img src="/static/macilcapo.png" id="logo">
+		        <img src="static/1.jpeg" id="logo">
 		        </hr>
 	        </div>
 	        </hr>

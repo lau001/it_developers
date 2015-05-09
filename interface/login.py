@@ -8,4 +8,5 @@ loginhtml = config.htmlFirst() + '''
                 <div> Email: <input type=\"text\" name=\"email\"/> </div>
                 <div> Password: <input type=\"password\" name=\"password\"/> </div>
                 <div> <input type=\"submit\" value=\"Login\"</div>
+                <div> <a href="/login">Sing Up</a><div>
             </form>''' + config.htmlEnd()
