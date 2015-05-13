@@ -34,5 +34,5 @@ class Main(webapp2.RequestHandler):
         self.response.out.write(config.htmlFirst() + "%s" % msg + config.htmlEnd())
 
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/login', Login.Login), ('/logout', facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/add', facade.AddUsers), ('/users', facade.SeeUsers)
+    ('/', Main), ('/login', Login.Login), ('/logout', facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/add', facade.AddUsers), ('/users', facade.SeeUsers)#, ('/foodmenu' , App.FoodMenu)
 ], debug=True)

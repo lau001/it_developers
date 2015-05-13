@@ -2,7 +2,6 @@ from google.appengine.ext import ndb
 
 import config
 
-
 class Usuario(ndb.Model):
     name = ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)

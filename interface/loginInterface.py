@@ -1,6 +1,6 @@
 import config
-
-loginhtml = config.htmlFirst() + '''
+def loginhtml():
+    return config.htmlFirst() + '''
             <form method="post" action=\"/login\">
                 <h1>Sing Up</h1>
                 </hr>
