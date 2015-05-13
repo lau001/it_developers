@@ -1,11 +1,11 @@
-import re
-import cgi
-
 import webapp2
 
+import re
+import cgi
 from interface import signup
 from dataaccess import dataAccess
 import App
+
 
 
 #Global
@@ -20,10 +20,10 @@ class Signup(webapp2.RequestHandler):
     def get(self):
         self.write_form()
     def post(self):
-        user_username = self.request.get('username')
-        user_password = self.request.get('password')
-        user_verify= self.request.get('verify')
-        user_email = self.request.get('email')
+        user_username = self.request.get
+        user_password = self.request.get
+        user_verify= self.request.get
+        user_email = self.request.get
         sani_username = self.escape_html(user_username)
         sani_password = self.escape_html(user_password)
         sani_verify= self.escape_html(user_verify)

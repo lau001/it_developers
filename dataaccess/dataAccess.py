@@ -1,4 +1,5 @@
 from google.appengine.ext import ndb
+
 import config
 
 
@@ -18,12 +19,6 @@ def SeeUsers(self):
     self.response.out.write('</table>' + config.htmlEnd())
 
 def AddUsers():
-    usuario = Usuario()
-    usuario.name = "lau"
-    usuario.email = "lau001@gmail.com"
-    usuario.password = "lau001"
-    usuario.put()
-
     usuario2 = Usuario()
     usuario2.name = "andoni"
     usuario2.email = "andoniito@gmail.com"
