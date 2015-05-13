@@ -11,7 +11,7 @@ class Logout(webapp2.RequestHandler):
         self.redirect('/')
 
 
-#SEE DATABASE USERS
+#SEE DATABASE USER
 
 class SeeUsers(webapp2.RequestHandler):
     def get(self):
