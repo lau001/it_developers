@@ -1,11 +1,11 @@
-import re
-import cgi
-
 import webapp2
 
+import re
+import cgi
 from interface import signup
 from dataaccess import dataAccess
 import App
+
 
 
 #Global
@@ -14,16 +14,16 @@ PASSWORD_RE = re.compile("^.{3,20}$")
 EMAIL_RE = re.compile("^[\S]+@[\S]+\.[\S]+$")
 
 class Signup(webapp2.RequestHandler):
-    def write_form(self, username="", password="", verify="", email="", username_error="", password_error="", verify_error="", email_error=""):
-        self.response.out.write(signup.signup_form % {"username": username, "password": password,
-            "verify": verify, "email": email, "username_error": username_error, "password_error": password_error, "verify_error": verify_error, "email_error": email_error})
+    def write_form (self, username="", password="",verify="", email="", username_error="", password_error="",verify_error="",email_error=""):
+        self.response.out.write(signup.signup_form % {"username" : username, "password" : password,
+            "verify" : verify, "email" : email, "username_error" : username_error, "password_error" : password_error,"verify_error" : verify_error, "email_error" : email_error})
     def get(self):
         self.write_form()
     def post(self):
-        user_username = self.request.get('username')
-        user_password = self.request.get('password')
-        user_verify= self.request.get('verify')
-        user_email = self.request.get('email')
+        user_username = self.request.get
+        user_password = self.request.get
+        user_verify= self.request.get
+        user_email = self.request.get
         sani_username = self.escape_html(user_username)
         sani_password = self.escape_html(user_password)
         sani_verify= self.escape_html(user_verify)
@@ -60,7 +60,7 @@ class Signup(webapp2.RequestHandler):
 
                 self.redirect("/app?username=%s" % user_username)
             else:
-                self.write_form(sani_username, sani_password, sani_verify, sani_email, username_error, password_error, verify_error, email_error)
+                self.write_form(sani_username,sani_password,sani_verify,sani_email,username_error,password_error,verify_error,email_error)
                 self.response.out.write("User already exists")
 
     def valid_username(self,username):
