@@ -17,9 +17,7 @@
 
 import webapp2
 from google.appengine.api import users
-
 import config
-
 from facade import facade, Login, Signup, App
 
 
