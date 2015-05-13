@@ -18,6 +18,8 @@
 import webapp2
 from google.appengine.api import users
 
+import config
+
 from facade import facade, Login, Signup, App
 
 
@@ -30,7 +32,7 @@ class Main(webapp2.RequestHandler):
         else:
             msg = ("<form action=\"/signup\"><input type=\"submit\" value=\"Sign Up\"></form>")
 
-        self.response.out.write("<html><body>%s</body></html>" % msg)
+        self.response.out.write(config.htmlFirst() + "%s" % msg + config.htmlEnd())
 
 app = webapp2.WSGIApplication([
     ('/', Main), ('/login', Login.Login), ('/logout', facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/add', facade.AddUsers), ('/users', facade.SeeUsers)
