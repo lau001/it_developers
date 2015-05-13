@@ -24,4 +24,10 @@ def AddUsers():
     usuario.password = "lau001"
     usuario.put()
 
+    usuario2 = Usuario()
+    usuario2.name = "andoni"
+    usuario2.email = "andoniito@gmail.com"
+    usuario2.password = "andoni"
+    usuario2.put()
+
 #usuarios = ndb.gql("SELECT * FROM Usuario")
