@@ -18,8 +18,8 @@
 import webapp2
 from google.appengine.api import users
 import config
-from facade import facade, Login, Signup, App, AddElement
-from interface import start
+from facade import Facade, Login, Signup, App, AddElement
+from interface import Start
 
 
 class Main(webapp2.RequestHandler):
@@ -29,10 +29,10 @@ class Main(webapp2.RequestHandler):
         if user:
             msg = ("Welcome, %s! (<a href=\"%s\">logout</a></br><a href=\"/app\"> app </a>)" % (user.nickname(), users.create_logout_url("/")))
         else:
-            msg = (start.unloggedMenu())
+            msg = (Start.unloggedMenu())
 
         self.response.out.write(config.htmlFirst() + "%s" % msg + config.htmlEnd())
 
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/login', Login.Login), ('/logout', facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/add', facade.AddUsers), ('/users', facade.SeeUsers), ('/addelement', AddElement.AddElement)#, ('/foodmenu' , App.FoodMenu)
+    ('/', Main), ('/login', Login.Login), ('/logout', Facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/add', Facade.AddUsers), ('/users', Facade.SeeUsers), ('/addelement', AddElement.AddElement)#, ('/foodmenu' , App.FoodMenu)
 ], debug=True)

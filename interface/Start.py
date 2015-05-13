@@ -1,6 +1,3 @@
-def startapp():
-    return ''' <div> <h1>Welcome!</h1> </div> '''
-
 def unloggedMenu():
     return ''' <ul>
                     <il><a href=/>Home</a></il>
@@ -14,4 +11,5 @@ def loggedMenu():
                     <il><a href=/app>Home</a></il>
                     <il><a href=/addelement>Add Element</a></il>
                     <il><a href=/seemenu>See Mc Ilcapo Menu</a></il>
+                    <il><a href=/>Log Out</a></il>
                 </ul>'''

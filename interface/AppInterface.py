@@ -1,4 +1,3 @@
-import config
 def add_element_gui():
     return '''
             <form method="post" action=\"/addelement\">

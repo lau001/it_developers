@@ -1,24 +1,22 @@
 import webapp2
-
-import re
 import cgi
-from interface import appInterface
-from dataaccess import dataAccess
+from interface import AppInterface
+from dataaccess import DataAccess
 from domain import Element
 import App
 import config
-from interface import start
+from interface import Start
 
 class AddElement(webapp2.RequestHandler):
     def write_form(self, name="", price="", photo="", type=""):
         self.response.out.write(config.htmlFirst())
-        self.response.out.write(start.loggedMenu())
-        self.response.out.write(appInterface.add_element_gui() % {"name": name, "price": price, "photo":photo, "type": type})
+        self.response.out.write(Start.loggedMenu())
+        self.response.out.write(AppInterface.add_element_gui() % {"name": name, "price": price, "photo":photo, "type": type})
         self.response.out.write(config.htmlEnd())
     def get(self):
         self.write_form()
     def post(self):
-        idelement = dataAccess.getElementId()
+        idelement = DataAccess.getElementId()
         name = self.request.get("name")
         price = self.request.get("price")
         photo = self.request.get("photo")

@@ -2,11 +2,11 @@ import webapp2
 
 import re
 import cgi
-from interface import signupInterface
-from dataaccess import dataAccess
+from interface import SignUpInterface
+from dataaccess import DataAccess
 import App
 import config
-
+from interface import Start
 
 
 #Global
@@ -17,7 +17,8 @@ EMAIL_RE = re.compile("^[\S]+@[\S]+\.[\S]+$")
 class Signup(webapp2.RequestHandler):
     def write_form(self, username="", password="", verify="", email="", username_error="", password_error="", verify_error="", email_error=""):
         self.response.out.write(config.htmlFirst())
-        self.response.out.write(signupInterface.signup_form() % {"username": username, "password": password,
+        self.response.out.write(Start.unloggedMenu())
+        self.response.out.write(SignUpInterface.signup_form() % {"username": username, "password": password,
             "verify":verify, "email": email, "username_error": username_error, "password_error": password_error, "verify_error": verify_error, "email_error": email_error})
         self.response.out.write(config.htmlEnd())
     def get(self):
@@ -52,10 +53,10 @@ class Signup(webapp2.RequestHandler):
         if error:
             self.write_form(sani_username, sani_password, sani_verify, sani_email, username_error, password_error, verify_error, email_error)
         else:
-            user = dataAccess.Usuario.query(dataAccess.Usuario.name == user_username)
+            user = DataAccess.Usuario.query(DataAccess.Usuario.name == user_username)
 
             if user.count() == 0:
-                u = dataAccess.Usuario()
+                u = DataAccess.Usuario()
                 u.name = user_username
                 u.email = user_email
                 u.password = user_password

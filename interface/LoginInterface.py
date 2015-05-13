@@ -1,7 +1,7 @@
 def loginhtml():
     return '''
             <form method="post" action=\"/login\">
-                <h1>Sing Up</h1>
+                <h1>Login</h1>
                 </hr>
                 <div> Email: <input type=\"text\" name=\"email\"/> </div>
                 <div> Password: <input type=\"password\" name=\"password\"/> </div>
