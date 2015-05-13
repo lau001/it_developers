@@ -17,7 +17,7 @@ def SeeUsers(self):
 
     self.response.out.write('</table>')
 
-def AddUsers(self):
+def AddUsers():
     usuario = Usuario()
     usuario.name="lau"
     usuario.email="lau001@gmail.com"

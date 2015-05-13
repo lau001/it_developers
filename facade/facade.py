@@ -19,7 +19,7 @@ class SeeUsers(webapp2.RequestHandler):
 
 #ADD USERS TO DATABASE
 
-class AddUsers():
+class AddUsers(webapp2.RequestHandler):
     def get(self):
-        return dataAccess.AddUsers(self)
+        dataAccess.AddUsers()
 

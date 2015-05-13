@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import webapp2
 from google.appengine.api import users
 
@@ -37,5 +36,5 @@ class Main(webapp2.RequestHandler):
         self.response.out.write("<html><body>%s</body></html>" % msg)
 
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/login',Login.Login), ('/logout',facade.Logout), ('/app',App.App), ('/register',Signup.Signup), ('/addusers',facade.AddUsers), ('/users',facade.SeeUsers)
+    ('/', Main), ('/login',Login.Login), ('/logout',facade.Logout), ('/app',App.App), ('/register',Signup.Signup), ('/add',facade.AddUsers), ('/users',facade.SeeUsers)
 ], debug=True)
