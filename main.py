@@ -19,6 +19,7 @@ import webapp2
 from google.appengine.api import users
 import config
 from facade import facade, Login, Signup, App
+from interface import start
 
 
 class Main(webapp2.RequestHandler):
@@ -28,7 +29,7 @@ class Main(webapp2.RequestHandler):
         if user:
             msg = ("Welcome, %s! (<a href=\"%s\">logout</a></br><a href=\"/app\"> app </a>)" % (user.nickname(), users.create_logout_url("/")))
         else:
-            msg = ("<form action=\"/signup\"><input type=\"submit\" value=\"Sign Up\"></form>")
+            msg = (start.menu())
 
         self.response.out.write(config.htmlFirst() + "%s" % msg + config.htmlEnd())
 
