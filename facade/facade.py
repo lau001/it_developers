@@ -1,7 +1,7 @@
 import webapp2
+from google.appengine.api import users
 
 from dataaccess import dataAccess
-from google.appengine.api import users
 
 #LOGOUT
 

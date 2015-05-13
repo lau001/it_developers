@@ -1,11 +1,11 @@
 import webapp2
 
-from interface import index
-
-
 class App(webapp2.RequestHandler):
     def get(self):
-        self.response.write(index.startapp)
+        user = users.get_current_user()
+
+        self.response.write("Hello there!")
+
 
 app = webapp2.WSGIApplication([
     ('/app', App)

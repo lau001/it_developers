@@ -22,8 +22,8 @@ handlers:
 - url: /javascript
   static_dir: static/js
 
-- url: /app/.*
-  script: app.app
+- url: /app.*
+  script: App.App
   login: required
   secure: always
 
