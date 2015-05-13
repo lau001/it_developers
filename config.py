@@ -17,4 +17,4 @@ def htmlFirst():
             '''
 
 def htmlEnd():
-    return '''</body> </html>'''
+    return '''</body> ANDONI PAGAFANTER </html>'''
