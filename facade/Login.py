@@ -19,7 +19,7 @@ class Login(webapp2.RequestHandler):
         if user.count() == 1:
             self.redirect("/app?username=%s" % email)
         else:
-            self.response.write(email % ", " % dbEmail % " Wrong user. <a href=\"/\">return</a>")
+            self.response.write("Wrong user. <a href=\"/\">return</a>")
 
 app = webapp2.WSGIApplication([
     ('/login', Login), ('/app', App.App)
