@@ -24,5 +24,5 @@ class Main(webapp2.RequestHandler):
         self.response.out.write(index.startapp)
 
 app = webapp2.WSGIApplication([
-    ('/', Main), ('/login', Login.Login), ('/logout', facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/addusers', facade.AddUsers), ('/users', facade.SeeUsers)
+    ('/', Main), ('/login', Login.Login), ('/logout', facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/add', facade.AddUsers), ('/users', facade.SeeUsers)
 ], debug=True)

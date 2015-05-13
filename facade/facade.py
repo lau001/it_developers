@@ -17,5 +17,6 @@ class SeeUsers(webapp2.RequestHandler):
     def get(self):
         return dataAccess.SeeUsers(self)
 
-def AddUsers():
-    return dataAccess.AddUsers
+class AddUsers(webapp2.RequestHandler):
+    def get(self):
+        return dataAccess.AddUsers()
