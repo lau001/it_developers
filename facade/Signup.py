@@ -14,9 +14,9 @@ PASSWORD_RE = re.compile("^.{3,20}$")
 EMAIL_RE = re.compile("^[\S]+@[\S]+\.[\S]+$")
 
 class Signup(webapp2.RequestHandler):
-    def write_form (self, username="", password="",verify="", email="", username_error="", password_error="",verify_error="",email_error=""):
-        self.response.out.write(signup.signup_form % {"username" : username, "password" : password,
-            "verify" : verify, "email" : email, "username_error" : username_error, "password_error" : password_error,"verify_error" : verify_error, "email_error" : email_error})
+    def write_form(self, username="", password="", verify="", email="", username_error="", password_error="", verify_error="", email_error=""):
+        self.response.out.write(signup.signup_form % {"username": username, "password": password,
+            "verify": verify, "email": email, "username_error": username_error, "password_error": password_error, "verify_error": verify_error, "email_error": email_error})
     def get(self):
         self.write_form()
     def post(self):
@@ -60,7 +60,7 @@ class Signup(webapp2.RequestHandler):
 
                 self.redirect("/app?username=%s" % user_username)
             else:
-                self.write_form(sani_username,sani_password,sani_verify,sani_email,username_error,password_error,verify_error,email_error)
+                self.write_form(sani_username, sani_password, sani_verify, sani_email, username_error, password_error, verify_error, email_error)
                 self.response.out.write("User already exists")
 
     def valid_username(self,username):
