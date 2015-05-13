@@ -2,12 +2,16 @@ import webapp2
 
 from dataaccess import dataAccess
 from interface import loginInterface
+from interface import start
 import App
+import config
 
 
 class Login(webapp2.RequestHandler):
     def write_form(self, username="", password=""):
-        self.response.out.write(loginInterface.loginhtml() % {"username": username, "password": password})
+        self.response.out.write(config.htmlFirst())
+        self.response.out.write(start.unloggedMenu() + loginInterface.loginhtml() % {"username": username, "password": password})
+        self.response.out.write(config.htmlEnd())
     def get(self):
         self.write_form()
     def post(self):

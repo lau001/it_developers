@@ -1,6 +1,5 @@
-import config
 def signup_form ():
-    return config.htmlFirst() + '''<h1>Sing Up</h1>
+    return'''<h1>Sing Up</h1>
     <form method="post">
         <table>
              <tr>
@@ -25,4 +24,4 @@ def signup_form ():
                 <td class="error">%(email_error)s</td>
              </tr>
         </table>
-     <input type="submit" value="Register"> </form>''' + config.htmlEnd()
+     <input type="submit" value="Register"> </form>'''

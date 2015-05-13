@@ -5,6 +5,7 @@ import cgi
 from interface import signupInterface
 from dataaccess import dataAccess
 import App
+import config
 
 
 
@@ -14,16 +15,18 @@ PASSWORD_RE = re.compile("^.{3,20}$")
 EMAIL_RE = re.compile("^[\S]+@[\S]+\.[\S]+$")
 
 class Signup(webapp2.RequestHandler):
-    def write_form (self, username="", password="",verify="", email="", username_error="", password_error="",verify_error="",email_error=""):
-        self.response.out.write(signupInterface.signup_form() % {"username": username, "password" : password,
-            "verify": verify, "email": email, "username_error": username_error, "password_error": password_error,"verify_error" : verify_error, "email_error" : email_error})
+    def write_form(self, username="", password="", verify="", email="", username_error="", password_error="", verify_error="", email_error=""):
+        self.response.out.write(config.htmlFirst())
+        self.response.out.write(signupInterface.signup_form() % {"username": username, "password": password,
+            "verify":verify, "email": email, "username_error": username_error, "password_error": password_error, "verify_error": verify_error, "email_error": email_error})
+        self.response.out.write(config.htmlEnd())
     def get(self):
         self.write_form()
     def post(self):
-        user_username = self.request.get
-        user_password = self.request.get
-        user_verify= self.request.get
-        user_email = self.request.get
+        user_username = self.request.get("username")
+        user_password = self.request.get("password")
+        user_verify= self.request.get("verify")
+        user_email = self.request.get("email")
         sani_username = self.escape_html(user_username)
         sani_password = self.escape_html(user_password)
         sani_verify= self.escape_html(user_verify)
@@ -47,7 +50,7 @@ class Signup(webapp2.RequestHandler):
             error = True
 
         if error:
-            self.write_form(sani_username,sani_password,sani_verify,sani_email,username_error,password_error,verify_error,email_error)
+            self.write_form(sani_username, sani_password, sani_verify, sani_email, username_error, password_error, verify_error, email_error)
         else:
             user = dataAccess.Usuario.query(dataAccess.Usuario.name == user_username)
 
@@ -60,19 +63,19 @@ class Signup(webapp2.RequestHandler):
 
                 self.redirect("/app?username=%s" % user_username)
             else:
-                self.write_form(sani_username,sani_password,sani_verify,sani_email,username_error,password_error,verify_error,email_error)
+                self.write_form(sani_username, sani_password, sani_verify, sani_email, username_error, password_error, verify_error, email_error)
                 self.response.out.write("User already exists")
 
-    def valid_username(self,username):
+    def valid_username(self, username):
         return USER_RE.match(username)
-    def valid_password(self,password):
+    def valid_password(self, password):
         return PASSWORD_RE.match(password)
-    def valid_email(self,email):
+    def valid_email(self, email):
         return EMAIL_RE.match(email)
 
-    def escape_html(self,val):
+    def escape_html(self, val):
         return cgi.escape(val, quote=True)
 
 app = webapp2.WSGIApplication([
-    ('/signup',Signup), ('/app',App.App)
+    ('/signup', Signup), ('/app', App.App)
 ], debug=True)

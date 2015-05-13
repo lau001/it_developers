@@ -1,6 +1,7 @@
 from google.appengine.ext import ndb
-
+from domain import Element
 import config
+
 
 class Usuario(ndb.Model):
     name = ndb.StringProperty(required=True)
@@ -29,5 +30,10 @@ def AddUsers():
     usuario.email = "carla@gmail.com"
     usuario.password = "carla"
     usuario.put()
+
+
+def getElementId():
+    return 1
+
 
 #usuarios = ndb.gql("SELECT * FROM Usuario")

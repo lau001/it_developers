@@ -1,7 +1,7 @@
 import config
 def add_element_gui():
-    return config.htmlFirst() + '''
-            <form method="post">
+    return '''
+            <form method="post" action=\"/addelement\">
                 <h1>Add Element</h1>
                 <table>
                     <tr>
@@ -27,11 +27,12 @@ def add_element_gui():
                         </td>
                     </tr>
                 </table>
+                <input type="submit" id="addElement" value="Add Element"/>
                 <div> <a href="/foodmenu">Food Menu</a><div>
-            </form>''' + config.htmlEnd()
+            </form>'''
 
 def see_all_elements_gui():
-    result = config.htmlFirst() + '''
+    result = '''
         <form method="post">
             <h1>Menu</h1>
             <table border="1">'''
@@ -46,5 +47,5 @@ def see_all_elements_gui():
     #             </tr>'''
     result1 = result + '''
             </table>
-        </form>''' + config.htmlEnd()
+        </form>'''
     return result1
