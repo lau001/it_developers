@@ -21,15 +21,21 @@ def SeeUsers(self):
 def AddUsers():
     usuario2 = Usuario()
     usuario2.name = "andoni"
-    usuario2.email = "andoniito@gmail.com"
+    usuario2.email = "andoni@gmail.com"
     usuario2.password = "andoni"
     usuario2.put()
 
     usuario = Usuario()
-    usuario.name = "carla"
-    usuario.email = "carla@gmail.com"
-    usuario.password = "carla"
+    usuario.name = "laura"
+    usuario.email = "laura@gmail.com"
+    usuario.password = "laura"
     usuario.put()
+
+    admin = Usuario()
+    admin.name = "admin"
+    admin.email = "admin"
+    admin.password = "admin123"
+    admin.put()
 
 
 def getElementId():
