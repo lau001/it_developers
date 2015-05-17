@@ -2,7 +2,6 @@ import webapp2
 import cgi
 from interface import AppInterface
 from dataaccess import DataAccess
-
 import App
 import config
 from interface import Start
