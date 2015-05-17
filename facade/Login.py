@@ -10,7 +10,7 @@ import config
 class Login(webapp2.RequestHandler):
     def write_form(self, username="", password=""):
         self.response.out.write(config.htmlFirst())
-        self.response.out.write(Start.unloggedMenu() + LoginInterface.loginhtml() % {"username": username, "password": password})
+        self.response.out.write(Start.menu() + LoginInterface.loginhtml() % {"username": username, "password": password})
         self.response.out.write(config.htmlEnd())
     def get(self):
         self.write_form()

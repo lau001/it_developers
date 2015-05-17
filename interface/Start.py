@@ -1,18 +1,45 @@
-def unloggedMenu():
-    return ''' <div id="menu">
-                    <ul>
-                        <il class="button"><a href=/>Home</a></il>
-                        <il class="button"><a href=/login>Login</a></il>
-                        <il class="button"><a href=/signup>Sign Up</a></il>
-                    </ul>
-                </div>'''
+from google.appengine.api import users
 
-def loggedMenu():
-    return ''' <div id="menu">
-                    <ul>
-                        <il class="button"><a href=/app>Home</a></il>
-                        <il class="button"><a href=/addelement>Add Element</a></il>
-                        <il class="button"><a href=/seemenu>See Mc Ilcapo Menu</a></il>
-                        <il class="button"><a href=/>Log Out</a></il>
-                    </ul>
-                </div>'''
+def menu():
+    user = users.get_current_user()
+    # unlogged user
+    if not user:
+        return ''' <div id="menu">
+                        <ul>
+                            <il class="button"><a href=/>Home</a></il>
+                            <il class="button"><a href=/login>Login</a></il>
+                            <il class="button"><a href=/signup>Sign Up</a></il>
+                        </ul>
+                    </div>'''
+
+    # logged user
+    else:
+        menu1 = ''' <div id="menu">
+                        <ul>
+                            <il class="button"><a href=/>Home</a></il>
+                            <il class="button"><a href=/seemenu>See Mc Ilcapo Menu</a></il>
+                            '''
+
+        # ADMIN MENU
+        if user == "admin":
+            menu2 = '''     <il class="button"><a href=/addelement>Add Element</a></il>'''
+        # USER MENU
+        else:
+            menu2 = '''     <il class="button"><a href=/order>Your order</a></il>'''
+
+        menu3 = "         <il class=\"button\"><a href=\"%s\">Logout</a></il> </ul></div>" % users.create_logout_url("/")
+
+        return menu1 + menu2 + menu3
+
+def home():
+    user = users.get_current_user()
+    if user:
+        return "<h1>Home, welcome, %s!</h1>" % users.get_current_user()
+    else:
+        return "<h1>Home</h1>"
+
+def aboutus():
+    return "<p>Photo Album is a web project developed in the Avanced Tools of Software design subject of the" \
+           " Computer Science Engineering degree of the University of the Basque Country." \
+           " This web is meant to be a Mc Ilcapo restaurant where you can see user our menu " \
+           " and ask your order.</p>"

@@ -17,7 +17,7 @@ EMAIL_RE = re.compile("^[\S]+@[\S]+\.[\S]+$")
 class Signup(webapp2.RequestHandler):
     def write_form(self, username="", password="", verify="", email="", username_error="", password_error="", verify_error="", email_error=""):
         self.response.out.write(config.htmlFirst())
-        self.response.out.write(Start.unloggedMenu())
+        self.response.out.write(Start.menu())
         self.response.out.write(SignUpInterface.signup_form() % {"username": username, "password": password,
             "verify":verify, "email": email, "username_error": username_error, "password_error": password_error, "verify_error": verify_error, "email_error": email_error})
         self.response.out.write(config.htmlEnd())

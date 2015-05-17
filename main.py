@@ -16,7 +16,6 @@
 #
 
 import webapp2
-from google.appengine.api import users
 import config
 from facade import Facade, Login, Signup, App, AddElement
 from interface import Start
@@ -24,14 +23,7 @@ from interface import Start
 
 class Main(webapp2.RequestHandler):
      def get(self):
-
-        user = users.get_current_user()
-        if user:
-            msg = ("Welcome, %s! (<a href=\"%s\">logout</a></br><a href=\"/app\"> app </a>)" % (user.nickname(), users.create_logout_url("/")))
-        else:
-            msg = (Start.unloggedMenu())
-
-        self.response.out.write(config.htmlFirst() + "%s" % msg + config.htmlEnd())
+        self.response.out.write(config.htmlFirst() + Start.menu() + Start.home() + Start.aboutus() + config.htmlEnd())
 
 app = webapp2.WSGIApplication([
     ('/', Main), ('/login', Login.Login), ('/logout', Facade.Logout), ('/app', App.App), ('/signup', Signup.Signup), ('/add', Facade.AddUsers), ('/users', Facade.SeeUsers), ('/addelement', AddElement.AddElement)#, ('/foodmenu' , App.FoodMenu)
