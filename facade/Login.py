@@ -21,7 +21,7 @@ class Login(webapp2.RequestHandler):
         dbPass = DataAccess.Usuario.password
         user = DataAccess.Usuario.query(dbEmail == email, dbPass == passw)
         if user.count() == 1:
-            self.redirect("/app?username=%s" % email)
+            self.redirect("/?username=%s" % email)
         else:
             self.response.write("Wrong user. <a href=\"/\">return</a>")
 

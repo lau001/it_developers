@@ -9,6 +9,7 @@ def menu():
                             <il class="button"><a href=/>Home</a></il>
                             <il class="button"><a href=/login>Login</a></il>
                             <il class="button"><a href=/signup>Sign Up</a></il>
+                            <il class="button"><a href=/menu>Menu</a></il>
                         </ul>
                     </div>'''
 
@@ -17,7 +18,7 @@ def menu():
         menu1 = ''' <div id="menu">
                         <ul>
                             <il class="button"><a href=/>Home</a></il>
-                            <il class="button"><a href=/seemenu>See Mc Ilcapo Menu</a></il>
+                            <il class="button"><a href=/menu>Menu</a></il>
                             '''
 
         # ADMIN MENU
@@ -25,16 +26,16 @@ def menu():
             menu2 = '''     <il class="button"><a href=/addelement>Add Element</a></il>'''
         # USER MENU
         else:
-            menu2 = '''     <il class="button"><a href=/order>Your order</a></il>'''
+            menu2 = ''''''
 
-        menu3 = "         <il class=\"button\"><a href=\"%s\">Logout</a></il> </ul></div>" % users.create_logout_url("/")
+        menu3 = "         <il class=\"button\"><a href=\"%s\">%s, logout</a></il></ul></div>" % (users.create_logout_url("/"), user)
 
         return menu1 + menu2 + menu3
 
 def home():
     user = users.get_current_user()
     if user:
-        return "<h1>Home, welcome, %s!</h1>" % users.get_current_user()
+        return "<h1>Home, %s!</h1>" % user
     else:
         return "<h1>Home</h1>"
 
