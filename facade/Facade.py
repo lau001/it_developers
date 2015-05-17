@@ -20,3 +20,7 @@ class SeeUsers(webapp2.RequestHandler):
 class AddUsers(webapp2.RequestHandler):
     def get(self):
         return DataAccess.AddUsers()
+
+class AddElements(webapp2.RequestHandler):
+    def get(self):
+        return DataAccess.AddElements
