@@ -8,7 +8,7 @@ def htmlFirst():
         </head>
         <body class="mystyle" data-feedly-mini="yes">
             <div id="logoDiv" name="logoDiv">
-		        <img src="/images/mcilcapo.png" id="logo" width="500px"/>
+		        <img src="/images/logo.png" id="logo" width="500px"/>
 	        </div>
 	        </hr>
             '''
