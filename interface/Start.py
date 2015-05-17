@@ -1,10 +1,41 @@
+import webapp2
+from dataaccess import DataAccess
 from google.appengine.api import users
 
-def menu():
-    user = users.get_current_user()
-    # unlogged user
-    if not user:
-        return ''' <div id="menu">
+
+def menu(self):
+
+    logged = self.request.cookies.get("logged")
+
+    # logged user
+    if logged == "true":
+
+        menu1 = ''' <div id="menu">
+                        <ul>
+                            <il class="button"><a href=/>Home</a></il>
+                            <il class="button"><a href=/menu>Menu</a></il>
+                            <il class="button"><a href=/logout>Logout</a></il>
+                            '''
+
+        # ADMIN MENU
+        username = self.request.cookies.get("username")
+        useradmin = False
+        name = DataAccess.Usuario.name
+        usuario = DataAccess.Usuario.query(name == username)
+        if usuario.count() == 1:
+            for aux in usuario:
+                useradmin = aux.admin
+
+        if useradmin == True:
+            menu2 = '''     <il class="button"><a href=/addelement>Add Element</a></il>'''
+        # USER MENU
+        else:
+            menu2 = ''''''
+
+        return menu1 + menu2
+
+    else:
+         return ''' <div id="menu">
                         <ul>
                             <il class="button"><a href=/>Home</a></il>
                             <il class="button"><a href=/login>Login</a></il>
@@ -12,25 +43,6 @@ def menu():
                             <il class="button"><a href=/menu>Menu</a></il>
                         </ul>
                     </div>'''
-
-    # logged user
-    else:
-        menu1 = ''' <div id="menu">
-                        <ul>
-                            <il class="button"><a href=/>Home</a></il>
-                            <il class="button"><a href=/menu>Menu</a></il>
-                            '''
-
-        # ADMIN MENU
-        if user == "admin":
-            menu2 = '''     <il class="button"><a href=/addelement>Add Element</a></il>'''
-        # USER MENU
-        else:
-            menu2 = ''''''
-
-        menu3 = "         <il class=\"button\"><a href=\"%s\">%s, logout</a></il></ul></div>" % (users.create_logout_url("/"), user)
-
-        return menu1 + menu2 + menu3
 
 def home():
     user = users.get_current_user()

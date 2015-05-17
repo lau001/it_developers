@@ -7,7 +7,8 @@ from dataaccess import DataAccess
 
 class Logout(webapp2.RequestHandler):
     def get(self):
-        users.create_logout_url('/')
+        self.response.headers.add_header('Set-Cookie',"logged=false")
+        self.response.headers.add_header('Set-Cookie',"username=")
         self.redirect('/')
 
 

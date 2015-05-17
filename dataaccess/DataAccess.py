@@ -1,16 +1,16 @@
 from google.appengine.ext import ndb
 import config
-from interface import Start
 
 
 class Usuario(ndb.Model):
     name = ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
     password = ndb.StringProperty(indexed=True)
+    admin = ndb.BooleanProperty
 
 def SeeUsers(self):
     usuarios = Usuario.query()
-    self.response.out.write(config.htmlFirst() + Start.menu() + '<table>')
+    self.response.out.write('<table>')
     for usuario in usuarios:
         self.response.out.write('<tr>')
         self.response.out.write('<td>' + usuario.email + '</td>')
@@ -18,17 +18,20 @@ def SeeUsers(self):
         self.response.out.write('</tr>')
     self.response.out.write('</table>' + config.htmlEnd())
 
+
 def AddUsers():
     usuario2 = Usuario()
     usuario2.name = "andoni"
     usuario2.email = "andoni@gmail.com"
     usuario2.password = "andoni"
+    usuario2.admin = False
     usuario2.put()
 
     usuario = Usuario()
     usuario.name = "laura"
     usuario.email = "laura@gmail.com"
     usuario.password = "laura"
+    usuario.admin = True
     usuario.put()
 
     admin = Usuario()
