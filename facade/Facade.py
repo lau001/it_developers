@@ -1,7 +1,7 @@
 import webapp2
 from google.appengine.api import users
 
-from dataaccess import DataAccess
+from dataaccess import dataAccess
 
 #LOGOUT
 
@@ -16,12 +16,12 @@ class Logout(webapp2.RequestHandler):
 
 class SeeUsers(webapp2.RequestHandler):
     def get(self):
-        return DataAccess.SeeUsers(self)
+        return dataAccess.SeeUsers(self)
 
 class AddUsers(webapp2.RequestHandler):
     def get(self):
-        return DataAccess.AddUsers()
+        return dataAccess.AddUsers()
 
 class AddElements(webapp2.RequestHandler):
     def get(self):
-        return DataAccess.AddElements(self)
+        return dataAccess.AddElements(self)

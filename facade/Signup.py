@@ -3,7 +3,7 @@ import webapp2
 import re
 import cgi
 from interface import SignUpInterface
-from dataaccess import DataAccess
+from dataaccess import dataAccess
 import App
 import config
 from interface import Start
@@ -53,10 +53,10 @@ class Signup(webapp2.RequestHandler):
         if error:
             self.write_form(sani_username, sani_password, sani_verify, sani_email, username_error, password_error, verify_error, email_error)
         else:
-            user = DataAccess.Usuario.query(DataAccess.Usuario.name == user_username)
+            user = dataAccess.Usuario.query(dataAccess.Usuario.name == user_username)
 
             if user.count() == 0:
-                u = DataAccess.Usuario()
+                u = dataAccess.Usuario()
                 u.name = user_username
                 u.email = user_email
                 u.password = user_password
