@@ -1,9 +1,8 @@
 import webapp2
 
-from dataaccess import DataAccess
+from dataaccess import dataAccess
 from interface import LoginInterface
 from interface import Start
-import App
 import config
 
 
@@ -17,9 +16,9 @@ class Login(webapp2.RequestHandler):
     def post(self):
         email = self.request.get("email")
         passw = self.request.get("password")
-        dbEmail = DataAccess.Usuario.email
-        dbPass = DataAccess.Usuario.password
-        usuario = DataAccess.Usuario.query(dbEmail == email, dbPass == passw)
+        dbEmail = dataAccess.Usuario.email
+        dbPass = dataAccess.Usuario.password
+        usuario = dataAccess.Usuario.query(dbEmail == email, dbPass == passw)
         if usuario.count() == 1:
             self.redirect("/app?username=%s" % email)
         else:
