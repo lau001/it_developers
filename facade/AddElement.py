@@ -37,5 +37,6 @@ class AddElement(webapp2.RequestHandler):
         return cgi.escape(val, quote=True)
 
 app = webapp2.WSGIApplication([
-    ('/addelement', AddElement), ('/app', App.App)
+    ('/addelement', AddElement),
+    ('/app', App.App)
 ], debug=True)

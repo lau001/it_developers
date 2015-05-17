@@ -4,7 +4,6 @@ import config
 from dataaccess import DataAccess
 from google.appengine.api import users
 
-
 class App(webapp2.RequestHandler):
     def get(self):
         self.response.write(config.htmlFirst() + Start.menu() + Start.home() + config.htmlEnd())
@@ -18,7 +17,6 @@ class SeeElements(webapp2.RequestHandler):
         self.response.out.write('<div>' + config.htmlEnd())
 
     def getElementsOfType(self, type):
-
         user = users.get_current_user()
         elemts = DataAccess.getElements(type)
         for ele in elemts:
