@@ -39,7 +39,7 @@ def home():
         return "<h1>Home</h1>"
 
 def aboutus():
-    return "<p>Photo Album is a web project developed in the Avanced Tools of Software design subject of the" \
-           " Computer Science Engineering degree of the University of the Basque Country." \
-           " This web is meant to be a Mc Ilcapo restaurant where you can see user our menu " \
-           " and ask your order.</p>"
+    return "<p> This is a web project developed by two students from the Computer Science" \
+           " Engineering degree of the University of the Basque Country. This web is " \
+           " meant to simulate a restaurant's website where you can see the menu and " \
+           " order some food.</p>"

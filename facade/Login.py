@@ -19,12 +19,12 @@ class Login(webapp2.RequestHandler):
         passw = self.request.get("password")
         dbEmail = DataAccess.Usuario.email
         dbPass = DataAccess.Usuario.password
-        user = DataAccess.Usuario.query(dbEmail == email, dbPass == passw)
-        if user.count() == 1:
+        usuario = DataAccess.Usuario.query(dbEmail == email, dbPass == passw)
+        if usuario.count() == 1:
             self.redirect("/app?username=%s" % email)
         else:
             self.response.write("Wrong user. <a href=\"/\">return</a>")
 
 app = webapp2.WSGIApplication([
-    ('/login', Login), ('/app', App.App)
-], debug=True)
+    ('/login', Login)
+], debug=True)\
