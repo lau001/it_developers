@@ -24,4 +24,3 @@ handlers:
 libraries:
 - name: webapp2
   version: latest
-  s
