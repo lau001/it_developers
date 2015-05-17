@@ -5,27 +5,26 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /stylesheet
+  static_dir: estilos
+  
+- url: /images
+  static_dir: static/images
 
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: .*
-  script: main.app
-
-- url: /images
-  static_dir: static/images
-
-- url: /style
-  static_dir: static/style
-
-- url: /javascript
-  static_dir: static/js
+- url: /js
+  static_dir: javascript
 
 - url: /app.*
-  script: App.App
+  script: App.app
   login: required
   secure: always
+
+- url: .*
+  script: main.app
 
 libraries:
 - name: webapp2
