@@ -23,4 +23,4 @@ class AddUsers(webapp2.RequestHandler):
 
 class AddElements(webapp2.RequestHandler):
     def get(self):
-        return DataAccess.AddElements
+        return DataAccess.AddElements()
