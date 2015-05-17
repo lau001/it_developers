@@ -1,6 +1,6 @@
 from google.appengine.ext import ndb
-from domain import Element
 import config
+from interface import Start
 
 
 class Usuario(ndb.Model):
@@ -10,7 +10,7 @@ class Usuario(ndb.Model):
 
 def SeeUsers(self):
     usuarios = Usuario.query()
-    self.response.out.write(config.htmlFirst() + '<table border = 1>')
+    self.response.out.write(config.htmlFirst() + Start.menu() + '<table>')
     for usuario in usuarios:
         self.response.out.write('<tr>')
         self.response.out.write('<td>' + usuario.email + '</td>')
@@ -37,9 +37,33 @@ def AddUsers():
     admin.password = "admin123"
     admin.put()
 
+class Elemento(ndb.Model):
+    idElement = ndb.StringProperty(required=True)
+    name = ndb.StringProperty(required=True)
+    price = ndb.StringProperty(required=True)
+    photo = ndb.StringProperty(required=True)
+    type = ndb.StringProperty(required=True)
 
-def getElementId():
-    return 1
+def AddElements():
+    for i in xrange(1, 10):
+        e1 = Elemento()
+        e1.idElement = 1
+        e1.name = "Name" + i
+        e1.photo = "/images/img" + i +".png"
+        if i % 3 == 0:
+            e1.type = "food"
+            e1.price = 20
+        elif i % 2 == 0:
+            e1.type = "drink"
+            e1.price = 3
+        else:
+            e1.type = "dessert"
+            e1.price = 5
+
+def getLastElementId():
+    return Elemento.query(Elemento).count + 1
+
+
 
 
 #usuarios = ndb.gql("SELECT * FROM Usuario")
