@@ -1,5 +1,5 @@
 def signup_form ():
-    return'''<h1>Sing Up</h1>
+    return'''<h1>Sign Up</h1>
     <form method="post">
         <div>
             <table>
