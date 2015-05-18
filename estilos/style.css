@@ -1,8 +1,8 @@
-/* MyStyle */
+s/* MyStyle */
 
 @font-face {
-font-family: Myfont;
-src: url(myfont.ttf);
+font-family: Arial, sans-serif;
+
 }
 
 
@@ -10,11 +10,10 @@ src: url(myfont.ttf);
     margin-left:auto;
     margin-right:auto;
     width: 100%;
-    background: #610B0B;
+    background: #514C5D;
     padding: 15px 5px 15px 5px;
-    font: 12px Myfont;
-    color: #F6D8CE;
-    text-shadow: 1px 1px 1px #FFF;
+    font: 12px Arial, sans-serif;
+    color: #12003b;
 }
 
 .mystyle h1 {
@@ -23,7 +22,7 @@ src: url(myfont.ttf);
     border-top:1px solid #E4E4E4;
     border-bottom:1px solid #E4E4E4;
     margin: 15px 0 15px 0;
-    color: #F5A9A9;
+    color: #12003b;
 	text-align:center;
 }
 
@@ -31,11 +30,11 @@ src: url(myfont.ttf);
 	text-align:center;
     font-size: 14px;
     padding: 15px 5px 15px 5px;
-    color: #F6D8CE;
+    color: #12003b;
 }
 
 .mystyle a{
-    color: #610B0B;
+    color: #12003b;
     text-decoration: none;
 }
 
@@ -46,11 +45,11 @@ src: url(myfont.ttf);
 
 .mystyle li{
     cursor: pointer;
-    background: #F6D8CE;
-    color: #610B0B;
+    background: #514C5D;
+    color: #a7aae9;
     box-shadow: 1px 1px 5px ;
     border-radius: 3px;
-    text-shadow: 1px 1px 1px #F5A9A9;
+    text-shadow: 1px 1px 1px #12003b;
 	padding: 15px 25px 10px 25px;
 	display: inline;
 	text-align: center;
@@ -71,10 +70,10 @@ src: url(myfont.ttf);
 }
 
 .mystyle input[type="text"], .mystyle input[type="password"]{
-	font: 16px Myfont;
+	font: 16px Arial, sans-serif;
     border: 1px solid #DADADA;
-    color: #610B0B;
-    background: #F6D8CE;
+    color: #000000;
+    background: #514C5D;
     height: 30px;
     width: 70%;
     min-width: 200px;
@@ -96,16 +95,15 @@ src: url(myfont.ttf);
 }
 .mystyle .button {
 	cursor: pointer;
-    background: #F6D8CE;
+    background: #bdacf6;
     padding: 8px 10px 8px 10px;
-    color: #610B0B;
-    box-shadow: 1px 1px 5px #F6D8CE;
+    color: #12003b;
+    box-shadow: 1px 1px 5px #bdacf6;
     border-radius: 3px;
-    text-shadow: 1px 1px 1px #F5A9A9;
 }
 
 
 
 .mystyle .button:hover {
-    background: #F5A9A9
+    background: #514c5d
 }
