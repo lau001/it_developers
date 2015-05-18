@@ -60,6 +60,11 @@ def AddElements(self):
         e1.put()
         self.response.out.write(e1.idElement + " ")
 
+def AddElement(self):
+ #one element
+        self.response.out.write(e1.idElement + " ")
+
+
 def getElements(type):
     return Elemento.query(Elemento.type == type)
 

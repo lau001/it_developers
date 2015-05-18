@@ -21,6 +21,11 @@ class AddUsers(webapp2.RequestHandler):
     def get(self):
         return DataAccess.AddUsers()
 
+class AddElement(webapp2.RequestHandler):
+    def get(self):
+        return DataAccess.AddElements(self)
+
+#initialize the database
 class AddElements(webapp2.RequestHandler):
     def get(self):
         return DataAccess.AddElements(self)
