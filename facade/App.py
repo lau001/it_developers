@@ -2,7 +2,6 @@ import webapp2
 from interface import Start
 import config
 from dataaccess import DataAccess
-from google.appengine.api import users
 
 
 class App(webapp2.RequestHandler):
@@ -18,11 +17,11 @@ class SeeElements(webapp2.RequestHandler):
         self.response.out.write('<div>' + config.htmlEnd())
 
     def getElementsOfType(self, type):
-
         username = self.request.cookies.get("username")
         name = DataAccess.Usuario.name
         usuario = DataAccess.Usuario.query(name == username)
         useradmin = False
+
         if usuario.count() == 1:
             for aux in usuario:
                 useradmin = aux.admin

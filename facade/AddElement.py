@@ -1,7 +1,7 @@
 import webapp2
 import cgi
 from interface import AppInterface
-from dataaccess import dataAccess
+from dataaccess import DataAccess
 import App
 import config
 from interface import Start
@@ -15,7 +15,7 @@ class AddElement(webapp2.RequestHandler):
     def get(self):
         self.write_form()
     def post(self):
-        element_idelement = dataAccess.getLastElementId()
+        element_idelement = DataAccess.getLastElementId()
         element_name = self.request.get("name")
         element_price = self.request.get("price")
         element_photo = self.request.get("photo")
@@ -23,9 +23,9 @@ class AddElement(webapp2.RequestHandler):
 
 
         # STORE ELEMENT
-        element = dataAccess.Elemento.query(element_idelement == dataAccess.Elemento.idElement)
+        element = DataAccess.Elemento.query(element_idelement == DataAccess.Elemento.idElement)
         if element.count() == 0:
-            e = dataAccess.Elemento()
+            e = DataAccess.Elemento()
             e.idElement = element_idelement
             e.name = element_name
             e.type = element_type

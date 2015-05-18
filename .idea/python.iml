@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="google-appengine-python" name="Google App Engine (Python)">
       <configuration>
-        <option name="rootFolder" value="$USER_HOME$/python" />
+        <option name="rootFolder" value="$USER_HOME$/Documentos/Tercero/HADS/repo" />
         <option name="sdkFolder" value="$USER_HOME$/google_appengine" />
         <option name="templatesFolder" value="" />
         <option name="oauth2" value="true" />

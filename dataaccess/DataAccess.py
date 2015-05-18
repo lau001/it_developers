@@ -34,11 +34,6 @@ def AddUsers():
     usuario.admin = True
     usuario.put()
 
-    admin = Usuario()
-    admin.name = "admin"
-    admin.email = "admin"
-    admin.password = "admin123"
-    admin.put()
 
 class Elemento(ndb.Model):
     idElement = ndb.StringProperty(required=True)
@@ -70,8 +65,3 @@ def getElements(type):
 
 def getLastElementId():
     return Elemento.query(Elemento).count + 1
-
-
-
-
-#usuarios = ndb.gql("SELECT * FROM Usuario")

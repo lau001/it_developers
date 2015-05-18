@@ -45,9 +45,10 @@ def menu(self):
                     </div>'''
 
 def home():
-    user = users.get_current_user()
-    if user:
-        return "<h1>Home, %s!</h1>" % user
+    logged = self.request.cookies.get("logged")
+    if logged=="true":
+        username = self.request.cookies.get("username")
+        return "<h1>Home, %s!</h1>" % username
     else:
         return "<h1>Home</h1>"
 

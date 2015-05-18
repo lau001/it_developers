@@ -24,6 +24,7 @@ class Login(webapp2.RequestHandler):
             username = ""
             for aux in usuario:
                 username = aux.name
+
             self.response.headers.add_header('Set-Cookie',"logged=true")
             self.response.headers.add_header('Set-Cookie',"username="+str(username))
             self.redirect("/app")
