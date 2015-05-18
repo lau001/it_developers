@@ -44,7 +44,7 @@ def menu(self):
                         </ul>
                     </div>'''
 
-def home():
+def home(self):
     logged = self.request.cookies.get("logged")
     if logged=="true":
         username = self.request.cookies.get("username")
