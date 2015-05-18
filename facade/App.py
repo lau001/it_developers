@@ -10,7 +10,7 @@ class App(webapp2.RequestHandler):
 
 class SeeElements(webapp2.RequestHandler):
     def get(self):
-        self.response.out.write(config.htmlFirst() + '<div>')
+        self.response.out.write(config.htmlFirst() + Start.menu(self) + '<div>')
         SeeElements.getElementsOfType(self, "food")
         SeeElements.getElementsOfType(self, "dessert")
         SeeElements.getElementsOfType(self, "drink")

@@ -2,7 +2,6 @@ import webapp2
 from dataaccess import DataAccess
 from google.appengine.api import users
 
-
 def menu(self):
 
     logged = self.request.cookies.get("logged")
