@@ -14,6 +14,7 @@ def loginhtml():
                             <td><input type=\"password\" name=\"password\"/></td>
                         </tr>
                     </table>
-                    <input type=\"submit\" class="button" value=\"Login\"
+                    </br>
+                    <input type=\"submit\" class="button" value=\"Login\">
                 </div>
             </form>'''

@@ -25,5 +25,6 @@ def signup_form ():
                     <td class="error">%(email_error)s</td>
                  </tr>
             </table>
+            </br>
             <input type="submit" class="button" value="Register"> </form>
         </div>'''

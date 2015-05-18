@@ -10,7 +10,7 @@ font-family: Arial, sans-serif;
     margin-left:auto;
     margin-right:auto;
     width: 100%;
-    background: #514C5D;
+    background: #ffffff;
     padding: 15px 5px 15px 5px;
     font: 12px Arial, sans-serif;
     color: #12003b;
@@ -45,7 +45,7 @@ font-family: Arial, sans-serif;
 
 .mystyle li{
     cursor: pointer;
-    background: #514C5D;
+    background: #ffffff;
     color: #a7aae9;
     box-shadow: 1px 1px 5px ;
     border-radius: 3px;
@@ -63,8 +63,8 @@ font-family: Arial, sans-serif;
 
 .mystyle table{
     border: none;
-    width: auto;
-    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
     max-width: 800px;
     max-height: 600px;
 }
@@ -73,7 +73,7 @@ font-family: Arial, sans-serif;
 	font: 16px Arial, sans-serif;
     border: 1px solid #DADADA;
     color: #000000;
-    background: #514C5D;
+    background: #ffffff;
     height: 30px;
     width: 70%;
     min-width: 200px;
@@ -98,12 +98,11 @@ font-family: Arial, sans-serif;
     background: #bdacf6;
     padding: 8px 10px 8px 10px;
     color: #12003b;
-    box-shadow: 1px 1px 5px #bdacf6;
     border-radius: 3px;
 }
 
 
 
 .mystyle .button:hover {
-    background: #514c5d
+    background: #ffffff
 }
