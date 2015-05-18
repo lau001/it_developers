@@ -6,7 +6,7 @@ class Usuario(ndb.Model):
     name = ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
     password = ndb.StringProperty(indexed=True)
-    admin = ndb.BooleanProperty
+    admin = ndb.StringProperty(required=True)
 
 def SeeUsers(self):
     usuarios = Usuario.query()
@@ -24,14 +24,14 @@ def AddUsers():
     usuario2.name = "andoni"
     usuario2.email = "andoni@gmail.com"
     usuario2.password = "andoni"
-    usuario2.admin = False
+    usuario2.admin = "false"
     usuario2.put()
 
     usuario = Usuario()
     usuario.name = "laura"
     usuario.email = "laura@gmail.com"
     usuario.password = "laura"
-    usuario.admin = True
+    usuario.admin = "true"
     usuario.put()
 
 

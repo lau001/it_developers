@@ -19,14 +19,14 @@ def menu(self):
 
         # ADMIN MENU
         username = self.request.cookies.get("username")
-        useradmin = False
+        useradmin = "false"
         name = DataAccess.Usuario.name
         usuario = DataAccess.Usuario.query(name == username)
         if usuario.count() == 1:
             for aux in usuario:
                 useradmin = aux.admin
 
-        if useradmin == True:
+        if useradmin == "true":
             menu2 = '''     <il class="button"><a href=/addelement>Add Element</a></il>'''
         # USER MENU
         else:
